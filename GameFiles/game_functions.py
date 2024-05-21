@@ -21,8 +21,16 @@ def get_option():
   print('Welcome to Word Guesser!')
   print('\tMENU')
   print('1. Singleplayer')
+  print('2. Scoreboard')
   print('2. Exit Game')
 
+# Outputs the scoreboard (win/loss, games played, etc.)
+def scoreboard(wins: int, losses: int):
+  print(f'Games Played: {wins+losses}')
+  print(f'Wins: {wins}')
+  print(f'Losses: {losses}')
+  print(f'Win Percentage: {round(wins/(wins+losses), 2)}
+  
 # Clearing the loading screen
 def clear():
   if os.name == 'nt': 
