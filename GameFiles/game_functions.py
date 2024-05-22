@@ -29,7 +29,7 @@ def scoreboard(wins: int, losses: int):
   print(f'Games Played: {wins+losses}')
   print(f'Wins: {wins}')
   print(f'Losses: {losses}')
-  print(f'Win Percentage: {round(wins/(wins+losses), 2)}
+  print(f'Win Percentage: {round(wins/(wins+losses), 2)}')
   
 # Clearing the loading screen
 def clear():
