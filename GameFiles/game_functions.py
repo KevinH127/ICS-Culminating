@@ -26,10 +26,14 @@ def get_option():
 
 # Outputs the scoreboard (win/loss, games played, etc.)
 def scoreboard(wins: int, losses: int):
+  print('\tScoreboard')
   print(f'Games Played: {wins+losses}')
   print(f'Wins: {wins}')
   print(f'Losses: {losses}')
-  print(f'Win Percentage: {round(wins/(wins+losses), 2)}')
+  if wins+losses > 0:
+    print(f'Win Percentage: {round(wins/(wins+losses), 2)}')
+  else:
+    print(f'Win Percentage: 0.00%')
   
 # Clearing the loading screen
 def clear():
@@ -49,7 +53,7 @@ def category_options():
 def get_word(category: list) -> list:
   # Using the master list to find words and returning a random one
   master_list = categories[category]
-  return master_list[random.randint(0,len(master_list))]
+  return master_list[random.randint(0,len(master_list))].lower()
 
 # Fix output in this function to something similar to your loading function
 def game_start():

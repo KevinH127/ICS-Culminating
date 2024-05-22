@@ -11,9 +11,8 @@ while True:
   try:
     get_option()
     option = None
-    while option not in [1,2, 3]:
+    while option not in [1,2,3]:
       option = int(input('Enter an option (1-3): '))
-      sleep(1)
       clear()
 
     match option:
@@ -35,6 +34,7 @@ while True:
       case 2: 
         scoreboard(wins, losses)
         enter = input('Press enter to go back...')
+        clear()
 
       case 3:
         print('Exiting Program')
@@ -43,8 +43,8 @@ while True:
         print('Exited Program')
         break
 
-
-  except:
+  except Exception as error:
+    print(error)
     print('Enter only the options 1, 2 or 3')
     sleep(1)
     clear()
