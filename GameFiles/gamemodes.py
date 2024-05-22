@@ -18,7 +18,7 @@ def singleplayer(category):
   # Using a loop to allow user multiple guesses for a letter
   while ''.join(hidden) != word and wrong != 7: 
   
-    guessed_letter = input(f"\nGuess a letter: {' '.join(hidden)} > ")
+    guessed_letter = input(f"\nGuess a letter: {' '.join(hidden)} > ").lower()
     
     # If letter is guessed twice
     if guessed_letter in guessed:
