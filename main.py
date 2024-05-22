@@ -4,12 +4,14 @@ from GameFiles.gamemodes import *
 from GameFiles.hangman_stages import *
 
 clear()
+wins = 0
+losses = 0
 
 try:
   get_option()
   option = None
-  while option not in [1,2]:
-    option = int(input('Enter an option (1-2): '))
+  while option not in [1,2, 3]:
+    option = int(input('Enter an option (1-3): '))
     sleep(1)
     clear()
   
@@ -28,8 +30,11 @@ try:
         clear()
       
       singleplayer(category)
-    
-    case 2:
+
+    case 2: 
+      scoreboard(wins, losses)
+      
+    case 3:
       print('Exiting Program')
       sleep(1)
       clear()
@@ -38,6 +43,6 @@ try:
 
 
 except:
-  print('Enter only the options 1 or 2')
+  print('Enter only the options 1, 2 or 3')
   sleep(1)
   clear()
