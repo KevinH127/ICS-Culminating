@@ -198,6 +198,7 @@ clear()
 wins = 0
 losses = 0
 
+# Creating a loop for the Main Menu
 while True: 
   try:
     get_option()
@@ -205,7 +206,7 @@ while True:
     while option not in [1,2,3,4]:
       option = int(input('Enter an option (1-4): '))
       loading_scr()
-
+    # If user enters options 1-4
     match option:
       case 1:
         try:
@@ -230,8 +231,10 @@ while True:
         guessed_letter = None
         print(word)
 
+        # Calling function for countdown
         game_start()
-        
+
+        # Outputs chosen category by user
         print(f'\tCategory: {category_names[category-1]}')
 
         # Output to the user the length of the word
@@ -239,13 +242,15 @@ while True:
 
         # Using a loop to allow user multiple guesses for a letter
         while ''.join(hidden) != word and wrong != 7: 
+          # Outputting Categories + the visual representation of hangman (make sure it doesn't output on the first one)
           if game != 0:
             print(f'\tCategory: {category_names[category-1]}')
             print(stages[wrong])
           
           game += 1
-          
+          # Outputs for the letters guessed by the user
           print(f"\nGuessed Letters: {', '.join(list(guessed))}")
+          # User Input
           guessed_letter = input(f"Guess a letter: {' '.join(hidden)} > ").lower()
 
           # If letter is guessed twice
@@ -268,7 +273,7 @@ while True:
           else:
             print('You guessed the correct letter!')
             guessed.add(guessed_letter)
-
+          
           sleep(1.5)
           clear()
 
@@ -286,17 +291,20 @@ while True:
           sleep(1.5)
           loading_scr()
           losses += 1
-
+      
+      # If option 2 is chosen
       case 2:
         rulebook()
         enter = input('Press enter to go back...')
         loading_scr()
 
+      # If option 3 is chosen
       case 3: 
         scoreboard(wins, losses)
         enter = input('Press enter to go back...')
         loading_scr()
 
+      # If option 4 is chosen
       case 4:
         print('Exiting Program')
         sleep(1)
@@ -304,5 +312,6 @@ while True:
         print('Exited Program')
         break
 
+  # Error checking for the Main Menu
   except:
     print('Enter only the options 1, 2, 3 or 4')
