@@ -17,9 +17,10 @@ categories = {
   3 : awl, # animals  
 }
 # ================= FUNCTIONS ================= #
+# Main Menu
 def get_option():
   print('Welcome to Word Guesser!')
-  print('====== MENU ======')
+  print('======== MENU ========')
   print('1. Singleplayer')
   print('2. Rules')
   print('3. Scoreboard')
@@ -38,6 +39,7 @@ def scoreboard(wins: int, losses: int):
 
 # Outputs the rules of the game
 def rulebook():
+  print('                        Rules of Hangman! ')
   print('1. You will be given a word and you have to try and guess the word')
   print('2. If you guess 7 wrong, the game will end and you will lose :(')
   print('3. You can either guess a letter, or guess the whole word')
@@ -54,7 +56,7 @@ def loading_scr():
     loading_bar = "Loading: ||" + "-" * i + " " * (bar_length - i) + "||"
     # Output
     print(loading_bar)
-    sleep(0.2)
+    sleep(0.15)
     clear()
   
 # Clearing the loading screen
@@ -67,7 +69,7 @@ def clear():
 # Listing Categories for users
 def category_options():
   print('====== Category Options ======')
-  print('1. Celebrity Names\n2. Movie Names\n3. Types of Animals')
+  print('1. Celebrity Names\n2. Movie Names\n3. Animals')
 
 # Generating a random word from category selected
 def get_word(category: list) -> list:
@@ -209,7 +211,7 @@ while True:
           category = None
           while category not in [1,2,3]: 
             category = int(input('Enter a options (1-3): '))
-            loading_scr()
+          loading_scr()
         except: 
           print('Enter only the options 1, 2 or 3')
           sleep(1)
@@ -238,13 +240,13 @@ while True:
           
           game += 1
           
-          print(f'\nGuessed Letters: {list(guessed)}')
+          print(f'\nGuessed Letters: {', '.join(list(guessed))}')
           guessed_letter = input(f"Guess a letter: {' '.join(hidden)} > ").lower()
 
           # If letter is guessed twice
           if guessed_letter in guessed:
             print(stages[wrong])
-            print(f'Hey! You already guessed {guessed_letter} correctly!')
+            print(f'Hey! You already guessed "{guessed_letter}"!')
 
           # If letter guessed is wrong
           elif check_letter(dictionary, word, guessed_letter, hidden) == False:
@@ -253,6 +255,7 @@ while True:
               guessed.add(guessed_letter)
             print(f'Too bad! {guessed_letter} is not in the word!')
 
+          # If Word is guessed correctly
           elif ''.join(hidden) == word:
             print('You guessed the correct word!')
 
