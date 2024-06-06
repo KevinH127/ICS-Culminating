@@ -16,6 +16,8 @@ categories = {
   2 : mwl, # movies
   3 : awl, # animals  
 }
+
+category_names = ['Names', 'Movies', 'Animals']
 # ================= FUNCTIONS ================= #
 # Main Menu
 def get_option():
@@ -230,7 +232,7 @@ while True:
 
         game_start()
         
-        print(f'Category: {category}')
+        print(f'\tCategory: {category_names[category-1]}')
 
         # Output to the user the length of the word
         print(f'Your word is {len(word)} letters long. Good Luck!')
@@ -238,7 +240,7 @@ while True:
         # Using a loop to allow user multiple guesses for a letter
         while ''.join(hidden) != word and wrong != 7: 
           if game != 0:
-            print(f'Category: {category}')
+            print(f'\tCategory: {category_names[category-1]}')
             print(stages[wrong])
           
           game += 1
