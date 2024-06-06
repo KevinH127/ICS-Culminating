@@ -44,13 +44,7 @@ def rulebook():
   print('   If there are multiple words, you must guess all words (guessing one of the multiple words will not work)')
   print('4. Have Fun! :)')
 
-# Clearing the loading screen
-def clear():
-  if os.name == 'nt': 
-    os.system('cls')
-  else: 
-    os.system('clear')
-
+# Creating a Loading Screen for the game
 def loading_scr():
   # Define the length of the loading bar
   bar_length = 5
@@ -63,6 +57,13 @@ def loading_scr():
     sleep(0.2)
     clear()
   
+# Clearing the loading screen
+def clear():
+  if os.name == 'nt': 
+    os.system('cls')
+  else: 
+    os.system('clear')
+
 # Listing Categories for users
 def category_options():
   print('====== Category Options ======')
@@ -91,9 +92,11 @@ def make_dictionary(word: str) -> dict:
 
   return dictionary
 
+# Making the word hidden by replacing it with asterisks
 def make_hidden_word(word):
   hidden = []
   for i in word:
+    # Making sure that spaces are not included in the guessed letters
     if i != ' ':
       hidden.append('*')
     else:
@@ -103,11 +106,13 @@ def make_hidden_word(word):
 # Checks if the guessed letter/word is correct
 def check_letter(dictionary: dict, word: str, letter: str, hidden: list) -> bool:
   
+  # If whole word is guessed
   if letter == word:
     for i in range(len(word)):
       hidden[i] = word[i]
     return True
   
+  # If a letter in the word is guessed
   elif letter in word:
     for i in (dictionary[letter]):
       hidden[i] = letter
