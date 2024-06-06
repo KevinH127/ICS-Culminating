@@ -243,7 +243,7 @@ while True:
           
           game += 1
           
-          print(f'\nGuessed Letters: {', '.join(list(guessed))}')
+          print(f"\nGuessed Letters: {', '.join(list(guessed))}")
           guessed_letter = input(f"Guess a letter: {' '.join(hidden)} > ").lower()
 
           # If letter is guessed twice
