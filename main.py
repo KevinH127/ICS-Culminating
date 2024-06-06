@@ -230,12 +230,15 @@ while True:
 
         game_start()
         
+        print(f'Category: {category}')
+
         # Output to the user the length of the word
         print(f'Your word is {len(word)} letters long. Good Luck!')
 
         # Using a loop to allow user multiple guesses for a letter
         while ''.join(hidden) != word and wrong != 7: 
           if game != 0:
+            print(f'Category: {category}')
             print(stages[wrong])
           
           game += 1
